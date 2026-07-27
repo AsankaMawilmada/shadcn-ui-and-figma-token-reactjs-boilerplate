@@ -5,10 +5,6 @@ const meta = {
   title: 'ui/InputOTP',
   component: InputOTP,
   tags: ['autodocs'],
-  argTypes: {
-    maxLength: { control: 'number' },
-    disabled: { control: 'boolean' },
-  },
   args: {
     maxLength: 6,
     children: null,
@@ -19,8 +15,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({ maxLength, disabled }) => (
-    <InputOTP maxLength={maxLength ?? 6} disabled={disabled}>
+  render: () => (
+    <InputOTP maxLength={6}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
@@ -37,9 +33,8 @@ export const Default: Story = {
 }
 
 export const FourDigits: Story = {
-  args: { maxLength: 4 },
-  render: ({ maxLength, disabled }) => (
-    <InputOTP maxLength={maxLength ?? 4} disabled={disabled}>
+  render: () => (
+    <InputOTP maxLength={4}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
@@ -51,6 +46,13 @@ export const FourDigits: Story = {
 }
 
 export const Disabled: Story = {
-  args: { maxLength: 6, disabled: true },
-  render: Default.render,
+  render: () => (
+    <InputOTP maxLength={6} disabled>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+    </InputOTP>
+  ),
 }

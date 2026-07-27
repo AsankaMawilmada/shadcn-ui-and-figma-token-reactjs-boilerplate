@@ -27,26 +27,6 @@ export const Default: Story = {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  ),
-}
-
-export const WithEllipsis: Story = {
-  render: (args) => (
-    <Breadcrumb {...args}>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
           <BreadcrumbEllipsis />
         </BreadcrumbItem>
         <BreadcrumbSeparator />

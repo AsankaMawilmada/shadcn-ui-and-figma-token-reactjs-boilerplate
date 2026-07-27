@@ -6,33 +6,28 @@ const meta = {
   component: NativeSelect,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['default', 'sm'],
-    },
-    disabled: { control: 'boolean' },
+    size: { control: 'select', options: ['sm', 'default'] },
+  },
+  args: {
+    defaultValue: 'apple',
+    children: (
+      <>
+        <NativeSelectOption value="apple">Apple</NativeSelectOption>
+        <NativeSelectOption value="banana">Banana</NativeSelectOption>
+      </>
+    ),
   },
 } satisfies Meta<typeof NativeSelect>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render: (args) => (
-    <NativeSelect {...args} defaultValue="apple">
-      <NativeSelectOption value="apple">Apple</NativeSelectOption>
-      <NativeSelectOption value="banana">Banana</NativeSelectOption>
-      <NativeSelectOption value="cherry">Cherry</NativeSelectOption>
-    </NativeSelect>
-  ),
-}
+export const Default: Story = {}
 
 export const Small: Story = {
   args: { size: 'sm' },
-  render: Default.render,
 }
 
 export const Disabled: Story = {
   args: { disabled: true },
-  render: Default.render,
 }

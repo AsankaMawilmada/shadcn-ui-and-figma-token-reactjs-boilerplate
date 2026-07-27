@@ -33,3 +33,22 @@ export const Default: Story = {
     </Carousel>
   ),
 }
+
+export const Vertical: Story = {
+  args: { orientation: 'vertical' },
+  render: (args) => (
+    <Carousel {...args} className="h-64 w-56">
+      <CarouselContent className="h-64">
+        {[1, 2, 3].map((n) => (
+          <CarouselItem key={n}>
+            <div className="flex h-32 items-center justify-center rounded-lg border text-2xl font-medium">
+              {n}
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  ),
+}

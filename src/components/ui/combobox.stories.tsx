@@ -10,13 +10,15 @@ const meta = {
   argTypes: {
     disabled: { control: 'boolean' },
   },
+  args: {
+    items: FRUITS,
+  },
 } satisfies Meta<typeof Combobox>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { items: FRUITS },
   render: (args) => (
     <Combobox {...args}>
       <ComboboxInput placeholder="Search fruit..." />
@@ -35,6 +37,6 @@ export const Default: Story = {
 }
 
 export const Disabled: Story = {
-  args: { items: FRUITS, disabled: true },
+  args: { disabled: true },
   render: Default.render,
 }

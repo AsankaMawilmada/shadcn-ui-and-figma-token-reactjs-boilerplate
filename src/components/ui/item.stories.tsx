@@ -8,21 +8,15 @@ const meta = {
   component: Item,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'outline', 'muted'],
-    },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'xs'],
-    },
+    variant: { control: 'select', options: ['default', 'outline', 'muted'] },
+    size: { control: 'select', options: ['default', 'sm', 'xs'] },
   },
 } satisfies Meta<typeof Item>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-function renderItem(args: Story['args']) {
+function InboxItem(args: React.ComponentProps<typeof Item>) {
   return (
     <ItemGroup className="w-80">
       <Item {...args}>
@@ -45,20 +39,25 @@ function renderItem(args: Story['args']) {
 
 export const Default: Story = {
   args: { variant: 'default' },
-  render: renderItem,
+  render: (args) => <InboxItem {...args} />,
 }
 
 export const Outline: Story = {
   args: { variant: 'outline' },
-  render: renderItem,
+  render: (args) => <InboxItem {...args} />,
 }
 
 export const Muted: Story = {
   args: { variant: 'muted' },
-  render: renderItem,
+  render: (args) => <InboxItem {...args} />,
 }
 
-export const Small: Story = {
-  args: { size: 'sm' },
-  render: renderItem,
+export const Sizes: Story = {
+  render: () => (
+    <ItemGroup className="w-80">
+      <InboxItem variant="outline" size="default" />
+      <InboxItem variant="outline" size="sm" />
+      <InboxItem variant="outline" size="xs" />
+    </ItemGroup>
+  ),
 }

@@ -17,14 +17,17 @@ const meta = {
   title: 'ui/Dialog',
   component: Dialog,
   tags: ['autodocs'],
+  argTypes: {
+    defaultOpen: { control: 'boolean' },
+  },
 } satisfies Meta<typeof Dialog>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <Dialog>
+  render: (args) => (
+    <Dialog {...args}>
       <DialogTrigger render={<Button variant="outline">Edit profile</Button>} />
       <DialogContent>
         <DialogHeader>
@@ -34,28 +37,6 @@ export const Default: Story = {
         <div className="flex flex-col gap-2">
           <Label htmlFor="story-dialog-name">Name</Label>
           <Input id="story-dialog-name" defaultValue="Ada Lovelace" />
-        </div>
-        <DialogFooter>
-          <DialogClose render={<Button variant="outline">Cancel</Button>} />
-          <Button>Save</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  ),
-}
-
-export const Open: Story = {
-  render: () => (
-    <Dialog defaultOpen>
-      <DialogTrigger render={<Button variant="outline">Edit profile</Button>} />
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Rendered already open, for visual review.</DialogDescription>
-        </DialogHeader>
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="story-dialog-open-name">Name</Label>
-          <Input id="story-dialog-open-name" defaultValue="Ada Lovelace" />
         </div>
         <DialogFooter>
           <DialogClose render={<Button variant="outline">Cancel</Button>} />

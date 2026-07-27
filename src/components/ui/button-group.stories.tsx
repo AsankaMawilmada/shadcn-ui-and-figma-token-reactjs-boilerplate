@@ -8,20 +8,14 @@ const meta = {
   title: 'ui/ButtonGroup',
   component: ButtonGroup,
   tags: ['autodocs'],
-  argTypes: {
-    orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-    },
-  },
 } satisfies Meta<typeof ButtonGroup>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => (
-    <ButtonGroup {...args}>
+  render: () => (
+    <ButtonGroup>
       <Button variant="outline" size="icon" aria-label="Bold">
         <Bold />
       </Button>
@@ -35,9 +29,9 @@ export const Default: Story = {
   ),
 }
 
-export const WithText: Story = {
-  render: (args) => (
-    <ButtonGroup {...args}>
+export const WithTextAddon: Story = {
+  render: () => (
+    <ButtonGroup>
       <ButtonGroupText>https://</ButtonGroupText>
       <Input placeholder="example.com" />
       <Button variant="outline">Go</Button>
@@ -46,8 +40,8 @@ export const WithText: Story = {
 }
 
 export const WithSeparator: Story = {
-  render: (args) => (
-    <ButtonGroup {...args}>
+  render: () => (
+    <ButtonGroup>
       <Button variant="outline">Copy</Button>
       <ButtonGroupSeparator />
       <Button variant="outline">Paste</Button>
@@ -58,9 +52,8 @@ export const WithSeparator: Story = {
 }
 
 export const Vertical: Story = {
-  args: { orientation: 'vertical' },
-  render: (args) => (
-    <ButtonGroup {...args} className="w-40">
+  render: () => (
+    <ButtonGroup orientation="vertical" className="w-40">
       <Button variant="outline">Profile</Button>
       <Button variant="outline">Billing</Button>
       <Button variant="outline">Settings</Button>

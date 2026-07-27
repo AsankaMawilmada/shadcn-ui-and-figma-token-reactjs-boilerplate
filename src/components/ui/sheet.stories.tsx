@@ -37,18 +37,7 @@ function renderSheet(side: 'top' | 'right' | 'bottom' | 'left') {
   )
 }
 
-export const Right: Story = {
-  render: () => renderSheet('right'),
-}
-
-export const Left: Story = {
-  render: () => renderSheet('left'),
-}
-
-export const Top: Story = {
-  render: () => renderSheet('top'),
-}
-
-export const Bottom: Story = {
-  render: () => renderSheet('bottom'),
-}
+export const Top: Story = { render: () => renderSheet('top') }
+export const Right: Story = { render: () => renderSheet('right') }
+export const Bottom: Story = { render: () => renderSheet('bottom') }
+export const Left: Story = { render: () => renderSheet('left') }

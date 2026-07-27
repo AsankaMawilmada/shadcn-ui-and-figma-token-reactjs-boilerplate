@@ -26,7 +26,7 @@ npm run storybook   # browse all components at http://localhost:6006
 | `npm run preview` | Preview the production build |
 | `npm run storybook` | Start Storybook in dev mode |
 | `npm run build-storybook` | Build a static Storybook site to `storybook-static/` |
-| `npm run lint` | Run Oxlint |
+| `npm run lint` | Run ESLint |
 
 ## Adding more shadcn components
 

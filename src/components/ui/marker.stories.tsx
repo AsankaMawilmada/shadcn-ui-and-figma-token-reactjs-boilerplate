@@ -6,13 +6,11 @@ const meta = {
   component: Marker,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'separator', 'border'],
-    },
+    variant: { control: 'select', options: ['default', 'separator', 'border'] },
   },
   args: {
-    variant: 'default',
+    className: 'w-72',
+    children: <MarkerContent>Today, 2:30 PM</MarkerContent>,
   },
 } satisfies Meta<typeof Marker>
 
@@ -20,27 +18,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => (
-    <Marker {...args} className="w-72">
-      <MarkerContent>Today, 2:30 PM</MarkerContent>
-    </Marker>
-  ),
+  args: { variant: 'default' },
 }
 
 export const Separator: Story = {
-  args: { variant: 'separator' },
-  render: (args) => (
-    <Marker {...args} className="w-72">
-      <MarkerContent>New messages</MarkerContent>
-    </Marker>
-  ),
+  args: {
+    variant: 'separator',
+    children: <MarkerContent>New messages</MarkerContent>,
+  },
 }
 
 export const Border: Story = {
-  args: { variant: 'border' },
-  render: (args) => (
-    <Marker {...args} className="w-72">
-      <MarkerContent>Section divider</MarkerContent>
-    </Marker>
-  ),
+  args: {
+    variant: 'border',
+    children: <MarkerContent>Section divider</MarkerContent>,
+  },
 }

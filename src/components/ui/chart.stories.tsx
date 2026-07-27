@@ -27,7 +27,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const BarChartExample: Story = {
+export const Default: Story = {
   render: () => (
     <ChartContainer config={chartConfig} className="h-56 w-96">
       <BarChart data={chartData}>

@@ -7,16 +7,8 @@ const meta = {
   component: Toggle,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'outline'],
-    },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'lg'],
-    },
-    defaultPressed: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    variant: { control: 'select', options: ['default', 'outline'] },
+    size: { control: 'select', options: ['sm', 'default', 'lg'] },
   },
   args: {
     'aria-label': 'Toggle bold',
@@ -39,17 +31,22 @@ export const Pressed: Story = {
   args: { defaultPressed: true },
 }
 
-export const Disabled: Story = {
-  args: { disabled: true },
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Toggle {...args} size="sm" aria-label="Small">
+        <Bold />
+      </Toggle>
+      <Toggle {...args} size="default" aria-label="Default">
+        <Bold />
+      </Toggle>
+      <Toggle {...args} size="lg" aria-label="Large">
+        <Bold />
+      </Toggle>
+    </div>
+  ),
 }
 
-export const WithText: Story = {
-  args: {
-    children: (
-      <>
-        <Bold />
-        Bold
-      </>
-    ),
-  },
+export const Disabled: Story = {
+  args: { disabled: true },
 }

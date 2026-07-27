@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { CreditCard, Mail, Search } from 'lucide-react'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-  InputGroupText,
-} from './input-group'
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from './input-group'
 
 const meta = {
   title: 'ui/InputGroup',
@@ -17,9 +11,9 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLeadingIcon: Story = {
-  render: (args) => (
-    <InputGroup {...args} className="w-72">
+export const Default: Story = {
+  render: () => (
+    <InputGroup className="w-72">
       <InputGroupInput placeholder="Search..." />
       <InputGroupAddon>
         <Search />
@@ -28,9 +22,9 @@ export const WithLeadingIcon: Story = {
   ),
 }
 
-export const WithTrailingButton: Story = {
-  render: (args) => (
-    <InputGroup {...args} className="w-72">
+export const WithButton: Story = {
+  render: () => (
+    <InputGroup className="w-72">
       <InputGroupInput placeholder="Email" />
       <InputGroupAddon>
         <Mail />
@@ -43,8 +37,8 @@ export const WithTrailingButton: Story = {
 }
 
 export const WithTextAddon: Story = {
-  render: (args) => (
-    <InputGroup {...args} className="w-72">
+  render: () => (
+    <InputGroup className="w-72">
       <InputGroupAddon>
         <InputGroupText>
           <CreditCard className="size-4" />

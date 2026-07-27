@@ -13,20 +13,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Sizes: Story = {
-  render: () => (
-    <div className="flex items-center gap-3">
-      <Spinner className="size-4" />
-      <Spinner className="size-6" />
-      <Spinner className="size-8" />
-    </div>
-  ),
+export const Small: Story = {
+  args: { className: 'size-4' },
+}
+
+export const Large: Story = {
+  args: { className: 'size-8' },
 }
 
 export const InButton: Story = {
-  render: () => (
+  render: (args) => (
     <Button disabled>
-      <Spinner />
+      <Spinner {...args} />
       Please wait
     </Button>
   ),

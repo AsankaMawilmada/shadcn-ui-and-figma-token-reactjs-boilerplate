@@ -11,24 +11,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  render: (args) => (
-    <Tooltip {...args}>
-      <TooltipTrigger render={<Button variant="outline">Hover me</Button>} />
-      <TooltipContent>Add to library</TooltipContent>
+function renderTooltip(side: 'top' | 'right' | 'bottom' | 'left') {
+  return (
+    <Tooltip>
+      <TooltipTrigger render={<Button variant="outline">{side}</Button>} />
+      <TooltipContent side={side}>Tooltip on {side}</TooltipContent>
     </Tooltip>
-  ),
+  )
 }
 
-export const Sides: Story = {
-  render: () => (
-    <div className="flex gap-4">
-      {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
-        <Tooltip key={side}>
-          <TooltipTrigger render={<Button variant="outline">{side}</Button>} />
-          <TooltipContent side={side}>Tooltip on {side}</TooltipContent>
-        </Tooltip>
-      ))}
-    </div>
-  ),
-}
+export const Top: Story = { render: () => renderTooltip('top') }
+export const Right: Story = { render: () => renderTooltip('right') }
+export const Bottom: Story = { render: () => renderTooltip('bottom') }
+export const Left: Story = { render: () => renderTooltip('left') }

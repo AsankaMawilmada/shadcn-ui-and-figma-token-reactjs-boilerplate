@@ -5,9 +5,6 @@ const meta = {
   title: 'ui/AspectRatio',
   component: AspectRatio,
   tags: ['autodocs'],
-  argTypes: {
-    ratio: { control: 'number' },
-  },
   args: {
     ratio: 16 / 9,
   },
@@ -17,9 +14,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Widescreen: Story = {
-  render: (args) => (
+  render: () => (
     <div className="w-80">
-      <AspectRatio {...args} className="overflow-hidden rounded-lg bg-muted">
+      <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg bg-muted">
         <div className="flex size-full items-center justify-center text-sm text-muted-foreground">
           16:9
         </div>
@@ -29,10 +26,9 @@ export const Widescreen: Story = {
 }
 
 export const Square: Story = {
-  args: { ratio: 1 },
-  render: (args) => (
-    <div className="w-60">
-      <AspectRatio {...args} className="overflow-hidden rounded-lg bg-muted">
+  render: () => (
+    <div className="w-48">
+      <AspectRatio ratio={1} className="overflow-hidden rounded-lg bg-muted">
         <div className="flex size-full items-center justify-center text-sm text-muted-foreground">
           1:1
         </div>
@@ -42,10 +38,9 @@ export const Square: Story = {
 }
 
 export const Portrait: Story = {
-  args: { ratio: 3 / 4 },
-  render: (args) => (
-    <div className="w-48">
-      <AspectRatio {...args} className="overflow-hidden rounded-lg bg-muted">
+  render: () => (
+    <div className="w-40">
+      <AspectRatio ratio={3 / 4} className="overflow-hidden rounded-lg bg-muted">
         <div className="flex size-full items-center justify-center text-sm text-muted-foreground">
           3:4
         </div>

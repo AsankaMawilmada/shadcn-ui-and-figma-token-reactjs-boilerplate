@@ -5,15 +5,6 @@ const meta = {
   title: 'ui/Input',
   component: Input,
   tags: ['autodocs'],
-  argTypes: {
-    type: {
-      control: 'select',
-      options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url', 'date', 'file'],
-    },
-    placeholder: { control: 'text' },
-    disabled: { control: 'boolean' },
-    'aria-invalid': { control: 'boolean' },
-  },
   args: {
     placeholder: 'Email address',
   },
@@ -29,13 +20,13 @@ export const Disabled: Story = {
 }
 
 export const Invalid: Story = {
-  args: { 'aria-invalid': true, placeholder: 'Invalid' },
+  args: { 'aria-invalid': true },
 }
 
 export const Password: Story = {
   args: { type: 'password', placeholder: 'Password' },
 }
 
-export const WithValue: Story = {
+export const WithDefaultValue: Story = {
   args: { defaultValue: 'Ada Lovelace' },
 }

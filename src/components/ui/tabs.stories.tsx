@@ -6,10 +6,10 @@ const meta = {
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
-    orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-    },
+    orientation: { control: 'select', options: ['horizontal', 'vertical'] },
+  },
+  args: {
+    defaultValue: 'account',
   },
 } satisfies Meta<typeof Tabs>
 
@@ -17,7 +17,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { defaultValue: 'account' },
   render: (args) => (
     <Tabs {...args} className="w-72">
       <TabsList>
@@ -30,8 +29,10 @@ export const Default: Story = {
   ),
 }
 
-export const LineVariant: Story = {
-  args: { defaultValue: 'overview' },
+export const Line: Story = {
+  args: {
+    defaultValue: 'overview',
+  },
   render: (args) => (
     <Tabs {...args} className="w-72">
       <TabsList variant="line">
@@ -45,7 +46,9 @@ export const LineVariant: Story = {
 }
 
 export const Vertical: Story = {
-  args: { defaultValue: 'account', orientation: 'vertical' },
+  args: {
+    orientation: 'vertical',
+  },
   render: (args) => (
     <Tabs {...args} className="w-96">
       <TabsList>

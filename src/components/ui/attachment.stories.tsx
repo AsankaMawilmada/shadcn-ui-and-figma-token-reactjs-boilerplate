@@ -15,25 +15,16 @@ const meta = {
   component: Attachment,
   tags: ['autodocs'],
   argTypes: {
-    state: {
-      control: 'select',
-      options: ['idle', 'uploading', 'processing', 'error', 'done'],
-    },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'xs'],
-    },
-    orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-    },
+    state: { control: 'select', options: ['idle', 'uploading', 'processing', 'error', 'done'] },
+    size: { control: 'select', options: ['default', 'sm', 'xs'] },
+    orientation: { control: 'select', options: ['horizontal', 'vertical'] },
   },
 } satisfies Meta<typeof Attachment>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-function renderAttachment(args: Story['args']) {
+function AttachmentExample(args: React.ComponentProps<typeof Attachment>) {
   return (
     <Attachment {...args}>
       <AttachmentMedia>
@@ -52,22 +43,32 @@ function renderAttachment(args: Story['args']) {
   )
 }
 
-export const Done: Story = {
-  args: { state: 'done' },
-  render: renderAttachment,
+export const Idle: Story = {
+  args: { state: 'idle' },
+  render: (args) => <AttachmentExample {...args} />,
 }
 
 export const Uploading: Story = {
   args: { state: 'uploading' },
-  render: renderAttachment,
+  render: (args) => <AttachmentExample {...args} />,
 }
 
-export const Error: Story = {
+export const Processing: Story = {
+  args: { state: 'processing' },
+  render: (args) => <AttachmentExample {...args} />,
+}
+
+export const ErrorState: Story = {
   args: { state: 'error' },
-  render: renderAttachment,
+  render: (args) => <AttachmentExample {...args} />,
+}
+
+export const Done: Story = {
+  args: { state: 'done' },
+  render: (args) => <AttachmentExample {...args} />,
 }
 
 export const Vertical: Story = {
   args: { state: 'done', orientation: 'vertical' },
-  render: renderAttachment,
+  render: (args) => <AttachmentExample {...args} />,
 }

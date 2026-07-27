@@ -10,40 +10,42 @@ const meta = {
       control: 'select',
       options: ['default', 'secondary', 'muted', 'tinted', 'outline', 'ghost', 'destructive'],
     },
-    align: {
-      control: 'select',
-      options: ['start', 'end'],
-    },
+    align: { control: 'select', options: ['start', 'end'] },
   },
   args: {
-    align: 'start',
+    children: <BubbleContent>Hello there!</BubbleContent>,
   },
 } satisfies Meta<typeof Bubble>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-function renderBubble(args: Story['args']) {
-  return (
-    <Bubble {...args}>
-      <BubbleContent>Hey, how's it going?</BubbleContent>
-    </Bubble>
-  )
-}
-
 export const Default: Story = {
   args: { variant: 'default' },
-  render: renderBubble,
 }
 
 export const Secondary: Story = {
   args: { variant: 'secondary' },
-  render: renderBubble,
+}
+
+export const Muted: Story = {
+  args: { variant: 'muted' },
+}
+
+export const Tinted: Story = {
+  args: { variant: 'tinted' },
 }
 
 export const Outline: Story = {
   args: { variant: 'outline' },
-  render: renderBubble,
+}
+
+export const Ghost: Story = {
+  args: { variant: 'ghost' },
+}
+
+export const Destructive: Story = {
+  args: { variant: 'destructive' },
 }
 
 export const Conversation: Story = {

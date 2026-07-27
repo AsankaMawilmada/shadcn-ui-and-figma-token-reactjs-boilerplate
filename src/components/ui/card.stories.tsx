@@ -2,25 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button } from './button'
 import { Input } from './input'
 import { Label } from './label'
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from './card'
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './card'
 
 const meta = {
   title: 'ui/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['default', 'sm'],
-    },
+    size: { control: 'select', options: ['default', 'sm'] },
+  },
+  args: {
+    size: 'default',
   },
 } satisfies Meta<typeof Card>
 
@@ -68,7 +60,9 @@ export const WithAction: Story = {
 }
 
 export const Small: Story = {
-  args: { size: 'sm' },
+  args: {
+    size: 'sm',
+  },
   render: (args) => (
     <Card {...args} className="w-72">
       <CardHeader>

@@ -21,3 +21,17 @@ export const Default: Story = {
     </Collapsible>
   ),
 }
+
+export const Open: Story = {
+  args: {
+    defaultOpen: true,
+  },
+  render: (args) => (
+    <Collapsible {...args} className="flex w-72 flex-col gap-2">
+      <CollapsibleTrigger render={<Button variant="outline">Toggle details</Button>} />
+      <CollapsibleContent className="rounded-lg border p-3 text-sm text-muted-foreground">
+        Additional details revealed when expanded.
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+}

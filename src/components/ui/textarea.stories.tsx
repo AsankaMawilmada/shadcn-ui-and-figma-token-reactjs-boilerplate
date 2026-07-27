@@ -5,11 +5,6 @@ const meta = {
   title: 'ui/Textarea',
   component: Textarea,
   tags: ['autodocs'],
-  argTypes: {
-    placeholder: { control: 'text' },
-    disabled: { control: 'boolean' },
-    'aria-invalid': { control: 'boolean' },
-  },
   args: {
     placeholder: 'Type your message here.',
   },
@@ -28,6 +23,6 @@ export const Invalid: Story = {
   args: { 'aria-invalid': true },
 }
 
-export const WithValue: Story = {
+export const WithDefaultValue: Story = {
   args: { defaultValue: 'Some pre-filled text spanning a couple of lines of content.' },
 }

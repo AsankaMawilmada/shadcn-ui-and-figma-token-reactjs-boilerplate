@@ -5,19 +5,8 @@ const meta = {
   title: 'ui/Slider',
   component: Slider,
   tags: ['autodocs'],
-  argTypes: {
-    min: { control: 'number' },
-    max: { control: 'number' },
-    step: { control: 'number' },
-    disabled: { control: 'boolean' },
-    orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-    },
-  },
   args: {
-    min: 0,
-    max: 100,
+    className: 'w-64',
   },
 } satisfies Meta<typeof Slider>
 
@@ -26,23 +15,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: { defaultValue: [40] },
-  render: (args) => (
-    <div className="w-64">
-      <Slider {...args} />
-    </div>
-  ),
 }
 
 export const Range: Story = {
   args: { defaultValue: [25, 75] },
-  render: (args) => (
-    <div className="w-64">
-      <Slider {...args} />
-    </div>
-  ),
 }
 
 export const Disabled: Story = {
   args: { defaultValue: [40], disabled: true },
-  render: Default.render,
 }

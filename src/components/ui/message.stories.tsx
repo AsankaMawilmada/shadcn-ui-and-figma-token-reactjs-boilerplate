@@ -8,22 +8,17 @@ const meta = {
   component: Message,
   tags: ['autodocs'],
   argTypes: {
-    align: {
-      control: 'select',
-      options: ['start', 'end'],
-    },
-  },
-  args: {
-    align: 'start',
+    align: { control: 'select', options: ['start', 'end'] },
   },
 } satisfies Meta<typeof Message>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Start: Story = {
+  args: { align: 'start' },
   render: (args) => (
-    <Message {...args} className="w-96">
+    <Message {...args}>
       <MessageAvatar>
         <Avatar>
           <AvatarFallback>AI</AvatarFallback>
@@ -32,6 +27,19 @@ export const Default: Story = {
       <MessageContent>
         <Bubble>
           <BubbleContent>How can I help you today?</BubbleContent>
+        </Bubble>
+      </MessageContent>
+    </Message>
+  ),
+}
+
+export const End: Story = {
+  args: { align: 'end' },
+  render: (args) => (
+    <Message {...args}>
+      <MessageContent>
+        <Bubble>
+          <BubbleContent>Can you summarize this PDF?</BubbleContent>
         </Bubble>
       </MessageContent>
     </Message>

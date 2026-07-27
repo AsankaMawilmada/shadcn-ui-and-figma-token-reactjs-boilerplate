@@ -6,31 +6,14 @@ const meta = {
   title: 'ui/ToggleGroup',
   component: ToggleGroup,
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'outline'],
-    },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'lg'],
-    },
-    orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-    },
-    multiple: { control: 'boolean' },
-    spacing: { control: 'number' },
-  },
 } satisfies Meta<typeof ToggleGroup>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { defaultValue: ['center'] },
-  render: (args) => (
-    <ToggleGroup {...args}>
+  render: () => (
+    <ToggleGroup defaultValue={['center']}>
       <ToggleGroupItem value="left" aria-label="Align left">
         <Bold />
       </ToggleGroupItem>
@@ -45,9 +28,8 @@ export const Default: Story = {
 }
 
 export const Outline: Story = {
-  args: { variant: 'outline', defaultValue: ['center'] },
-  render: (args) => (
-    <ToggleGroup {...args}>
+  render: () => (
+    <ToggleGroup variant="outline" defaultValue={['center']}>
       <ToggleGroupItem value="left" aria-label="Align left">
         <Bold />
       </ToggleGroupItem>
@@ -62,9 +44,8 @@ export const Outline: Story = {
 }
 
 export const Multiple: Story = {
-  args: { multiple: true, defaultValue: ['bold'] },
-  render: (args) => (
-    <ToggleGroup {...args}>
+  render: () => (
+    <ToggleGroup multiple defaultValue={['bold']}>
       <ToggleGroupItem value="bold" aria-label="Bold">
         <Bold />
       </ToggleGroupItem>
@@ -79,9 +60,8 @@ export const Multiple: Story = {
 }
 
 export const Vertical: Story = {
-  args: { orientation: 'vertical', defaultValue: ['center'] },
-  render: (args) => (
-    <ToggleGroup {...args}>
+  render: () => (
+    <ToggleGroup orientation="vertical" defaultValue={['center']}>
       <ToggleGroupItem value="left" aria-label="Align left">
         <Bold />
       </ToggleGroupItem>

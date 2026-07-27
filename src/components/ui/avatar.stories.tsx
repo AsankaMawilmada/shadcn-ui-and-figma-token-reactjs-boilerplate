@@ -6,10 +6,10 @@ const meta = {
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'lg'],
-    },
+    size: { control: 'select', options: ['default', 'sm', 'lg'] },
+  },
+  args: {
+    children: <AvatarFallback>AL</AvatarFallback>,
   },
 } satisfies Meta<typeof Avatar>
 
@@ -17,21 +17,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => (
-    <Avatar {...args}>
-      <AvatarFallback>AL</AvatarFallback>
-    </Avatar>
-  ),
+  args: { size: 'default' },
 }
 
 export const Small: Story = {
   args: { size: 'sm' },
-  render: Default.render,
 }
 
 export const Large: Story = {
   args: { size: 'lg' },
-  render: Default.render,
 }
 
 export const Group: Story = {

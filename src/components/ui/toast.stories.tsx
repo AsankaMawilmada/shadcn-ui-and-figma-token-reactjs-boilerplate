@@ -25,17 +25,13 @@ export const Default: Story = {
   ),
 }
 
-export const Success: Story = {
+export const SuccessToast: Story = {
   render: () => (
     <Toaster>
       <Button
         variant="outline"
         onClick={() =>
-          toast.add({
-            title: 'Success',
-            description: 'Your changes have been saved.',
-            type: 'success',
-          })
+          toast.add({ title: 'Success', description: 'Your changes have been saved.', type: 'success' })
         }
       >
         <CheckCircle2 />

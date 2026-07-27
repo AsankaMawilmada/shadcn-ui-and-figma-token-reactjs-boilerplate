@@ -5,20 +5,15 @@ const meta = {
   title: 'ui/Kbd',
   component: Kbd,
   tags: ['autodocs'],
-  args: {
-    children: 'K',
-  },
 } satisfies Meta<typeof Kbd>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
-
-export const Group: Story = {
-  render: () => (
+export const Default: Story = {
+  render: (args) => (
     <KbdGroup>
-      <Kbd>⌘</Kbd>
+      <Kbd {...args}>⌘</Kbd>
       <Kbd>K</Kbd>
     </KbdGroup>
   ),

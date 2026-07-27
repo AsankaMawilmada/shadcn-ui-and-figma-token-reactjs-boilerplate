@@ -7,12 +7,10 @@ const meta = {
   component: Switch,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['default', 'sm'],
-    },
-    defaultChecked: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    size: { control: 'select', options: ['sm', 'default'] },
+  },
+  args: {
+    'aria-label': 'Toggle',
   },
 } satisfies Meta<typeof Switch>
 
@@ -34,9 +32,9 @@ export const Disabled: Story = {
 }
 
 export const WithLabel: Story = {
-  render: (args) => (
+  render: () => (
     <div className="flex items-center gap-2">
-      <Switch {...args} id="story-switch-airplane" />
+      <Switch id="story-switch-airplane" defaultChecked />
       <Label htmlFor="story-switch-airplane">Airplane mode</Label>
     </div>
   ),
