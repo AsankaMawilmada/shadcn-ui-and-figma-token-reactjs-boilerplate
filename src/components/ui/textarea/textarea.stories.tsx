@@ -1,0 +1,28 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Textarea } from './textarea'
+
+const meta = {
+  title: 'ui/Textarea',
+  component: Textarea,
+  tags: ['autodocs', '!dev'],
+  args: {
+    placeholder: 'Type your message here.',
+  },
+} satisfies Meta<typeof Textarea>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
+
+export const Disabled: Story = {
+  args: { disabled: true },
+}
+
+export const Invalid: Story = {
+  args: { 'aria-invalid': true },
+}
+
+export const WithDefaultValue: Story = {
+  args: { defaultValue: 'Some pre-filled text spanning a couple of lines of content.' },
+}
