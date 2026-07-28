@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": [],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["src"],
+  "exclude": [
+    "src/**/*.stories.tsx",
+    "src/App.tsx",
+    "src/main.tsx",
+    "vitest.shims.d.ts"
+  ]
+}
